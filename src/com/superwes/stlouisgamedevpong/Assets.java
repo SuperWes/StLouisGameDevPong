@@ -8,6 +8,7 @@ public class Assets {
     public static Pixmap logo;
     public static Pixmap logo2;
     public static Pixmap gameBackground;
+    public static Pixmap ball;
     
     public static Sound click;
     public static Sound eat;

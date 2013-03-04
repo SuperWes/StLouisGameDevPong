@@ -11,6 +11,7 @@ public class GameplayScreen extends Screen {
 
 	private Paddle paddle1;
 	private Paddle paddle2;
+	private Ball ball;
 
 	public GameplayScreen(Game game) {
 		super(game);
@@ -18,6 +19,7 @@ public class GameplayScreen extends Screen {
 	}
 
 	private void initializeGame() {
+		ball = new Ball(game, 160, 240);
 		paddle1 = new Paddle(game, Assets.logo, 110, 5);
 		paddle2 = new Paddle(game, Assets.logo2, 110, 480-Assets.logo2.getHeight()-5);
 	}
@@ -27,6 +29,7 @@ public class GameplayScreen extends Screen {
 		List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
 		paddle1.update(touchEvents);
 		paddle2.update(touchEvents);
+		ball.update();
 	}
 
 	@Override
@@ -36,6 +39,7 @@ public class GameplayScreen extends Screen {
         g.drawPixmap(Assets.gameBackground, 0, 0);
         paddle1.present(deltaTime);
         paddle2.present(deltaTime);
+        ball.present(deltaTime);
 
 	}
 

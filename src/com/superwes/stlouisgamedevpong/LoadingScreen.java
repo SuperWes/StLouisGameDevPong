@@ -19,6 +19,7 @@ public class LoadingScreen extends Screen {
         Assets.logo = g.newPixmap("igda-logo.png", PixmapFormat.ARGB4444);
         Assets.logo2 = g.newPixmap("meetuplogo.png", PixmapFormat.ARGB4444);
         Assets.gameBackground = g.newPixmap("gameBackground.png", PixmapFormat.ARGB4444);
+        Assets.ball = g.newPixmap("ball.png", PixmapFormat.ARGB4444);
         
         Assets.click = game.getAudio().newSound("click.ogg");
         Assets.eat = game.getAudio().newSound("eat.ogg");
