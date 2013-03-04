@@ -1,7 +1,10 @@
 package com.superwes.stlouisgamedevpong;
 
+import java.util.List;
+
 import com.superwes.games.framework.Game;
 import com.superwes.games.framework.Graphics;
+import com.superwes.games.framework.Input.TouchEvent;
 import com.superwes.games.framework.Pixmap;
 
 public class Paddle {
@@ -21,6 +24,19 @@ public class Paddle {
 	public void present(float deltaTime) {
         Graphics g = game.getGraphics();
         g.drawPixmap(logo, x, y);
+	}
+
+	public void update(List<TouchEvent> touchEvents) {
+		for (TouchEvent event : touchEvents) {
+			if (event.type == TouchEvent.TOUCH_DRAGGED) {
+				if (y > 240 && event.y > 240) {
+					x = event.x - logo.getWidth()/2;
+				} else if (y < 240 && event.y < 240) {
+					x = event.x - logo.getWidth()/2;
+				}
+			}
+		}
+
 	}
 
 }

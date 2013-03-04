@@ -1,8 +1,11 @@
 package com.superwes.stlouisgamedevpong;
 
+import java.util.List;
+
 import com.superwes.games.framework.Game;
 import com.superwes.games.framework.Graphics;
 import com.superwes.games.framework.Screen;
+import com.superwes.games.framework.Input.TouchEvent;
 
 public class GameplayScreen extends Screen {
 
@@ -16,13 +19,14 @@ public class GameplayScreen extends Screen {
 
 	private void initializeGame() {
 		paddle1 = new Paddle(game, Assets.logo, 110, 5);
-		paddle2 = new Paddle(game, Assets.logo2, 110, 320-5);
+		paddle2 = new Paddle(game, Assets.logo2, 110, 480-Assets.logo2.getHeight()-5);
 	}
 
 	@Override
 	public void update(float deltaTime) {
-		// TODO Auto-generated method stub
-
+		List<TouchEvent> touchEvents = game.getInput().getTouchEvents();
+		paddle1.update(touchEvents);
+		paddle2.update(touchEvents);
 	}
 
 	@Override
